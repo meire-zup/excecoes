@@ -7,8 +7,11 @@ import java.util.Scanner;
 public class Conversor {
 
     Scanner scanner = new Scanner(System.in);
+    Scanner scannerAlfa = new Scanner(System.in);
+
 
     int escolha;
+
 
     public void menu() {
 
@@ -18,39 +21,12 @@ public class Conversor {
         do {
             System.out.println("Qual moeda deseja converter?");
             System.out.println("1 - Dólar americano, 2 - Dólar canadense, 3 - Euro ou 4 - Libra Esterlina");
-            escolha = scanner.nextInt();
-            try {
-                if (escolha > 0 && escolha <5){
-                    receberValor();
-                }
-                if (escolha <= 0 || escolha > 4)                {
-                    throw new IllegalArgumentException("Tipo de moeda inválido.");
-
-                }
-
-            } catch (IllegalArgumentException e){
-
-                System.out.println(e.getMessage());
-
-            }
-
-
-        } while (escolha <=0 || escolha > 4);
-    }
-
-    public void menu2() {
-
-        int escolha;
-        System.out.println("Boas vindas ao conversor de moedas");
-
-        do {
-            System.out.println("Qual moeda deseja converter?");
-            System.out.println("1 - Dólar americano, 2 - Dólar canadense, 3 - Euro ou 4 - Libra Esterlina");
-            escolha = scanner.nextInt();
+            escolha = scannerAlfa.nextInt();
 
             try {
                 if (escolha > 0 && escolha <5){
-                    receberValor();
+                    converterValor();
+                    System.out.println(converterValor());
                 }  else                 {
                     throw new IllegalArgumentException("Tipo de moeda inválido.");
                 }
@@ -62,8 +38,8 @@ public class Conversor {
 
     }
 
-
     public BigDecimal receberValor() {
+
         BigDecimal moeda = null;
 
         do {

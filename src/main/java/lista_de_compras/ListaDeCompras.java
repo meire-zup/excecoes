@@ -124,6 +124,30 @@ public class ListaDeCompras {
 
     }
 
+    public String informarNomeDoAlimento2() {
+
+        do {
+            try {
+
+                nome = scannerAlfabetico.nextLine();
+
+                if (nome.isEmpty()) {
+
+                    throw new UnsupportedOperationException("Não é permitido inserir nome vazio");
+
+                }
+
+
+            }catch (UnsupportedOperationException e) {
+
+                System.out.println(e.getMessage());
+            }
+        } while (nome.isEmpty());
+
+        return nome;
+
+    }
+
 
     public void informaQuantidadeAlimentoDouble() {
 
