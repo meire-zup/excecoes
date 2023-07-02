@@ -15,8 +15,6 @@ public class DolarAmericano implements Moeda {
 
     }
 
-
-
     @Override
     public String getNome() {
 
