@@ -11,9 +11,6 @@ public class Main {
 
         ListaDeCompras listaDeCompras = new ListaDeCompras(alimentos);
 
-        //System.out.println(listaDeCompras2.informaNomeDoAlimento());
-
-       //System.out.println(listaDeCompras2.informaQuantidadeAlimentoDouble());
         listaDeCompras.menu();
         listaDeCompras.imprimirLista();
 

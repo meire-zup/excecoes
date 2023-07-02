@@ -20,7 +20,7 @@ public abstract class AlimentoQuantidadeDouble extends Alimento {
     @Override
     public String toString() {
         return super.getId() +
-                " - " + super.getNome() + ": " + this.getQuantidade() + " kg\n";
+                " - " + super.getNome() + ": " + this.getQuantidade() + " kg";
     }
 
 

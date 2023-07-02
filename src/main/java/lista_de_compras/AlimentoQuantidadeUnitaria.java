@@ -18,7 +18,7 @@ public class AlimentoQuantidadeUnitaria extends Alimento {
     public String toString() {
 
         return super.getId() +
-                " - " + super.getNome() + ": " + this.getQuantidade() ;
+                " - " + super.getNome() + ": " + this.getQuantidade();
 
     }
 }

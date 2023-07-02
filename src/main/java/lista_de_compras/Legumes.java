@@ -5,7 +5,7 @@ public class Legumes extends AlimentoQuantidadeUnitaria {
     @Override
     public String toString() {
 
-        return "LEGUME - " + super.toString();
+        return  "\n" + super.toString() + " - LEGUME";
 
     }
 
