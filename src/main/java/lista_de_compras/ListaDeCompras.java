@@ -1,15 +1,12 @@
 package lista_de_compras;
 
-import java.security.spec.RSAOtherPrimeInfo;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 
 public class ListaDeCompras {
 
     int escolha;
-    Double quantidade;
 
     String nome = "";
 
@@ -40,91 +37,84 @@ public class ListaDeCompras {
             }
 
         } while (escolha < 1 || escolha > 4);
-
     }
-
 
     public void menu() {
 
-        System.out.println("Vamos montar sua lista de compras. Informe seu alimento:");
-        System.out.println("Digite 1 para VERDURA, 2 para LEGUMES, 3 para GRÃOS ou 4 para OUTROS:");
-
-        try {
-            escolha = scannerNumerico.nextInt();
-
-            switch (escolha) {
-                case 1:
-                    Verdura verdura = new Verdura();
-                    System.out.println("Informe a quantidade de verdura que deseja adicionar:");
-                    informaQuantidadeAlimentoDouble();
-                    verdura.setQuantidade(quantidade);
-                    System.out.println("Informe o nome da verdura que deseja adicionar:");
-                    informarNomeDoAlimento();
-                    verdura.setNome(nome);
-                    listaDeCompras.add(verdura);
-                    System.out.println(verdura.getNome());
-                    System.out.println(verdura.getQuantidade());
-                    break;
-
-                case 2:
-
-
-                    break;
-
-                case 3:
-
-                    Graos graos = new Graos();
-                    System.out.println("Informe a quantidade de grãos que deseja adicionar:");
-                    informaQuantidadeAlimentoDouble();
-                    graos.setQuantidade(quantidade);
-                    System.out.println("Informe o nome do grão que deseja adicionar:");
-                    informarNomeDoAlimento();
-                    graos.setNome(nome);
-                    listaDeCompras.add(graos);
-                    break;
-
-                case 4:
-
-                    System.out.println("Informe o nome do alimento que deseja adicionar:");
-                    break;
-
-                default:
-
-                    throw new IllegalArgumentException("Tipo de alimento inválido!");
-
-
-            }
-        } catch (IllegalArgumentException e) {
-
-            System.out.println(e.getMessage());
-
-        }
-    }
-
-
-    public void informarNomeDoAlimento() {
-
         do {
+
+            System.out.println("Digite 1 para VERDURA, 2 para LEGUMES, 3 para GRÃOS, 4 para OUTROS ou 0 para sair:");
+
             try {
+                escolha = scannerNumerico.nextInt();
 
-                nome = scannerAlfabetico.nextLine();
+                switch (escolha) {
+                    case 0:
 
-                if (nome.isEmpty()) {
+                        System.out.println("FIM!");
+                        break;
 
-                    throw new UnsupportedOperationException("Não é permitido inserir nome vazio");
+                    case 1:
+                        Verdura verdura = new Verdura();
+                        verdura.setQuantidade(informaQuantidadeAlimentoDouble());
+                        System.out.println("Informe o nome da verdura que deseja adicionar:");
+                        verdura.setNome(informaNomeDoAlimento());
+                        listaDeCompras.add(verdura);
+                        System.out.println(verdura.getNome());
+                        System.out.println(verdura.getQuantidade());
+                        break;
+
+                    case 2:
+                        Legumes legumes = new Legumes();
+                        legumes.setQuantidade(informaQuantidadeAlimentoInteger());
+                        System.out.println("Informe o nome do legume que deseja adicionar:");
+                        legumes.setNome(informaNomeDoAlimento());
+                        listaDeCompras.add(legumes);
+                        System.out.println(legumes.getNome());
+                        System.out.println(legumes.getQuantidade());
+                        break;
+
+                    case 3:
+
+                        Graos graos = new Graos();
+                        System.out.println("Informe a quantidade de grãos que deseja adicionar:");
+                        informaQuantidadeAlimentoDouble();
+                        graos.setQuantidade(informaQuantidadeAlimentoDouble());
+                        System.out.println("Informe o nome do grão que deseja adicionar:");
+                        informaNomeDoAlimento();
+                        graos.setNome(nome);
+                        listaDeCompras.add(graos);
+                        break;
+
+                    case 4:
+
+                        Outros outro = new Outros();
+                        outro.setQuantidade(informaQuantidadeAlimentoInteger());
+                        System.out.println("Informe o nome do alimento que deseja adicionar:");
+                        outro.setNome(informaNomeDoAlimento());
+                        listaDeCompras.add(outro);
+                        System.out.println(outro.getNome());
+                        System.out.println(outro.getQuantidade());
+                        break;
+
+                    default:
+
+                        throw new IllegalArgumentException("Tipo de alimento inválido!");
+
 
                 }
-
-
-            }catch (UnsupportedOperationException e) {
+            } catch (IllegalArgumentException e) {
 
                 System.out.println(e.getMessage());
+
             }
-        } while (nome.isEmpty());
+
+        } while (escolha != 0);
 
     }
 
-    public String informarNomeDoAlimento2() {
+
+    public String informaNomeDoAlimento() {
 
         do {
             try {
@@ -148,43 +138,80 @@ public class ListaDeCompras {
 
     }
 
+    public Double informaQuantidadeAlimentoDouble() {
+        System.out.println("Informe a quantidade de legumes que deseja adicionar:");
+        boolean valorValido = false;
+        BigDecimal quantidadeDecimal = BigDecimal.ZERO;
 
-    public void informaQuantidadeAlimentoDouble() {
+        do {
+            try {
+                String linha = scannerAlfabetico.nextLine().trim();
 
-        try{
-                quantidade =  scannerNumerico.nextDouble();
-                String entradaQuantidade = String.valueOf(quantidade);
-
-
-            if(quantidade < 0) {
-
-                        System.out.println("Não é possível inserir número negativos!");
-
-
-                } else if (quantidade == Math.floor(quantidade)) {
-
-                    throw new NumberFormatException("Para verdura, a quantidade deve ser informada com vírgula!");
-
-                } else if (entradaQuantidade.isEmpty()) {
-
+                if (linha.isEmpty()) {
                     throw new UnsupportedOperationException("Não é permitido inserir valor vazio");
-
                 }
 
-        } catch (NumberFormatException e) {
+                quantidadeDecimal = new BigDecimal(linha);
 
-            System.out.println(e.getMessage());
+                if (quantidadeDecimal.compareTo(BigDecimal.ZERO) < 0) {
+                    System.out.println("Não é possível inserir números negativos!");
+                } else if (quantidadeDecimal.scale() == 0) {
+                    throw new NumberFormatException("Para verdura, a quantidade deve ser informada com ponto!");
+                } else {
+                    valorValido = true;
+                }
 
-        } catch (UnsupportedOperationException e) {
+            } catch (NumberFormatException e) {
+                System.out.println(e.getMessage());
+            } catch (UnsupportedOperationException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (!valorValido);
 
-            System.out.println(e.getMessage());
+        return quantidadeDecimal.doubleValue();
+    }
 
-        } catch (InputMismatchException e) {
+    public Integer informaQuantidadeAlimentoInteger() {
+        System.out.println("Informe a quantidade de verdura que deseja adicionar:");
+        boolean valorValido = false;
+        BigDecimal quantidadeDecimal = BigDecimal.ZERO;
 
-            System.out.println(e.getMessage());
+        do {
+            try {
+                String linha = scannerAlfabetico.nextLine().trim();
+
+                if (linha.isEmpty()) {
+                    throw new UnsupportedOperationException("Não é permitido inserir valor vazio");
+                }
+
+                quantidadeDecimal = new BigDecimal(linha);
+
+                if (quantidadeDecimal.compareTo(BigDecimal.ZERO) < 0) {
+                    System.out.println("Não é possível inserir números negativos!");
+                } else if (quantidadeDecimal.scale() != 0) {
+                    throw new NumberFormatException("Para legume, a quantidade deve ser informada em unidades inteiras!");
+                } else {
+                    valorValido = true;
+                }
+
+            } catch (NumberFormatException e) {
+                System.out.println(e.getMessage());
+            } catch (UnsupportedOperationException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (!valorValido);
+
+        return quantidadeDecimal.intValue();
+    }
+
+    public void imprimirLista(){
+
+        System.out.println("Lista de compras:");
+        System.out.println("TIPO ALIMENTO | ID | NOME | QUANTIDADE | ");
+        System.out.println(listaDeCompras.toString());
 
         }
 
-    }
+
 
 }

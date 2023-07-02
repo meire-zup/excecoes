@@ -1,6 +1,7 @@
 package conversor_de_moedas;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
@@ -8,8 +9,14 @@ public class Main {
 
 
         Conversor conversor = new Conversor();
-        conversor.receberValor();
+        //conversor.receberValor();
+       conversor.menu();
+
+        //conversor.receberValor();
+       //.menu();
+
 
 
     }
 }
+

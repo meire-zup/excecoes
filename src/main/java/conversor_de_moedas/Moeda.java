@@ -6,4 +6,9 @@ public interface Moeda {
 
     BigDecimal converterMoeda(BigDecimal valor);
 
+    String getNome();
+
+    Double getCambio();
+
+
 }

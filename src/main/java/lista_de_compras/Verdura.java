@@ -4,7 +4,7 @@ public class Verdura extends AlimentoQuantidadeDouble {
 
     @Override
     public String toString() {
-        System.out.println("Verduras: ");
-        return super.toString();
+
+        return "VERDURA - " + super.toString();
     }
 }

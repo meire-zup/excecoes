@@ -14,4 +14,18 @@ public class DolarCanadense implements Moeda{
         return valor.multiply(cambioConvertido);
 
     }
+
+    @Override
+    public Double getCambio() {
+
+        return this.cambio;
+
+    }
+
+    @Override
+    public String getNome() {
+
+        return "MOEDA DÓLAR CANADENSE";
+
+    }
 }

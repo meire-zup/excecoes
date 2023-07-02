@@ -14,4 +14,18 @@ public class LibraEsterlina implements Moeda{
 
     }
 
+    @Override
+    public Double getCambio() {
+
+        return this.cambio;
+
+    }
+
+    @Override
+    public String getNome() {
+
+        return "MOEDA LIBRA ESTERLINA";
+
+    }
+
 }

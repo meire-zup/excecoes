@@ -14,5 +14,18 @@ public class Euro implements Moeda{
         return valor.multiply(cambioConvertido);
 
     }
+    @Override
+    public Double getCambio() {
+
+        return this.cambio;
+
+    }
+
+    @Override
+    public String getNome() {
+
+        return "MOEDA EURO";
+
+    }
 
 }

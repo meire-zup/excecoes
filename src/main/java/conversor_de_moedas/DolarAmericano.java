@@ -14,4 +14,21 @@ public class DolarAmericano implements Moeda {
         return valor.multiply(cambioConvertido);
 
     }
+
+
+
+    @Override
+    public String getNome() {
+
+        return "MOEDA DÓLAR AMERICANO";
+
+    }
+
+    @Override
+    public Double getCambio() {
+
+        return this.cambio;
+
+    }
+
 }
