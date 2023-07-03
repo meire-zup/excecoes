@@ -65,3 +65,5 @@ i. Se sim, o programa reinicia.
 ii. Se não, o programa encerra.
 
 <p>Valores a serem utilizados</p>
+
+<img width="407" alt="image" src="https://github.com/meire-zup/excecoes/assets/133882369/4ff46c69-2dd2-40ea-a3ec-474d65244018">
