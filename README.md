@@ -32,12 +32,36 @@ Programação orientada a objetos/ Solid e Clean Code
 <img width="417" alt="image" src="https://github.com/meire-zup/excecoes/assets/133882369/6dccb5fd-93d2-4553-a735-683658f1a41e">
 
 #### Exercício 02
+<p> Elaborar um programa de conversão de moeda de acordo com as seguintes especificações (sempre usando OOP):</p>
 
-- Exercício 1: Crie um programa para gerenciar uma lista de produtos de um estabelecimento,
-cada produto tem um nome e um preço. No final do programa, o usuário deve decidir se irá adicionar
-mais de um produto, exibir todos os produtos cadastrados ou excluir um produto pelo nome.
-- Exercício 2: Crie um programa para gerenciar uma lista de candidatos de um vestibular,
-cada candidato tem número de matrícula e uma nota. No final do programa, o usuário deve decidir
-se irá adicionar mais de um candidato, exibir todos os candidatos cadastrados ou excluir um candidato pelo número de matrícula.
-- Exercício 3: Crie um programa para gerenciar o cardápio de um restaurante. Cada prato tem um nome e pode
-  conter diversos ingredientes. No final do programa, o usuário deve decidir se irá adicionar mais de um prato, exibir todos os pratos cadastrados ou excluir um prato pelo nome.
+
+ - a) O programa deve ter apresentar para a pessoa usuária “Boas vindas ao conversor de moedas”
+ - b) O programa deve perguntar qual a moeda que a pessoa quer converter, sendo que o programa só pode aceitar as seguintes opções de moeda:
+    - i. Dólar americano
+    - ii. Dólar canadense
+    - iii. Euro
+    - iv. Libra Esterlina
+ - c) Caso a pessoa digite qualquer outra moeda fora das mencionadas acima, o programa deve estourar uma exception do tipo IllegalArgumentException com a mensagem “Tipo de moeda inválido”.
+ - d) Após escolher qual o tipo de moeda a ser convertida, o programa deve informar a pessoa usuária que ele só sabe converter dinheiro para Real (R$).
+ - e) Após informar o tipo de moeda válida a ser convertida, o sistema deve pedir o valor a ser convertido no formato BigDecimal.
+   - i. Caso a pessoa digite qualquer texto ou valor vazio, o
+programa deve estourar uma exception do tipo
+NumberFormatException com a mensagem “Para
+moeda, o valor monetário deve ser um número decimal”.
+ii. Caso a pessoa digite um valor menor ou igual a zero, o
+programa deve mostrar a seguinte mensagem para a
+pessoa: “Valor inválido, por favor, tente novamente” E
+permitir que a pessoa insira o valor a ser convertido de novo
+ - f) O Após as entradas, o sistema deve fazer a devida conversão da
+moeda escolhida para Real (R$) de acordo com a cotação do
+dia. Você pode pegar o valor do dia
+g. Após a conversão o sistema deve mostrar a mensagem: “A
+[MOEDA] na cotação de hoje [DIA ATUAL] está em [VALOR DA
+COTAÇÃO], o valor que pediu para converter de [VALOR
+INSERIDO] em reais é R$[VALOR CONVERTIDO]”.
+h. Por fim, o programa deve perguntar se a pessoa deseja fazer
+outra conversão.
+i. Se sim, o programa reinicia.
+ii. Se não, o programa encerra.
+
+<p>Valores a serem utilizados</p>
